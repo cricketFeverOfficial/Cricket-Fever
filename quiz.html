@@ -1,30 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cricket Quiz</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cricket Fever Quiz</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<header>🏏 Cricket Quiz</header>
+<header>
+🏏 Cricket Fever Quiz
+</header>
 
 <div class="container">
-    <h2>Welcome to Cricket Fever Quiz</h2>
 
-    <p><b>Question 1:</b></p>
-    <p>Who is known as the King of Cricket?</p>
+<h2 id="question">Loading Question...</h2>
 
-    <button>Virat Kohli</button><br><br>
-    <button>Rohit Sharma</button><br><br>
-    <button>MS Dhoni</button><br><br>
+<div id="options"></div>
 
-    <br><br>
+<h3 id="score">Score: 0</h3>
 
-    <a href="index.html">
-        <button>⬅ Back to Home</button>
-    </a>
+<button onclick="nextQuestion()">
+Next Question ➡️
+</button>
 
 </div>
+
+
+<script>
+
+let questions = [
+{
+question: "Who is known as the King of Cricket?",
+options: [
+"Rohit Sharma",
+"Virat Kohli",
+"MS Dhoni",
+"Sachin Tendulkar"
+],
+answer: "Virat Kohli"
+},
+
+{
+question: "Who scored 264 runs in ODI cricket?",
+options: [
+"Virat Kohli",
+"Rohit Sharma",
+"Chris Gayle",
+"AB de Villiers"
+],
+answer: "Rohit Sharma"
+}
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+
+
+function loadQuestion(){
+
+let q = questions[currentQuestion];
+
+document.getElementById("question").innerHTML = q.question;
+
+let optionBox = document.getElementById("options");
+
+optionBox.innerHTML="";
+
+
+q.options.forEach(function(option){
+
+let button = document.createElement("button");
+
+button.innerHTML = option;
+
+button.onclick = function(){
+
+if(option == q.answer){
+score++;
+}
+
+document.getElementById("score").innerHTML =
+"Score: " + score;
+
+};
+
+optionBox.appendChild(button);
+
+});
+
+}
+
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion < questions.length){
+
+loadQuestion();
+
+}
+else{
+
+document.getElementById("question").innerHTML =
+"Quiz Finished! 🎉";
+
+document.getElementById("options").innerHTML =
+"Your Score: " + score;
+
+}
+
+}
+
+
+loadQuestion();
+
+</script>
+
 
 </body>
 </html>
