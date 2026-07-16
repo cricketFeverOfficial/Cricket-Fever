@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cricket Fever</title>
-<style>
-body{
-  font-family: Arial, sans-serif;
-  background:#0d47a1;
-  color:white;
-  text-align:center;
-  margin:0;
-  padding:20px;
-}
-button{
-  padding:15px 25px;
-  font-size:18px;
-  margin:10px;
-  border:none;
-  border-radius:10px;
-  background:#ff9800;
-  color:white;
-}
-</style>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
 </head>
+
 <body>
 
-<h1>🏏 Cricket Fever</h1>
-<p>Welcome to the Ultimate Cricket Quiz!</p>
+<header>
+🏏 Cricket Fever
+</header>
 
-<button>Start Quiz</button>
-<button>Player Records</button>
+<div class="container">
+
+<h2>Welcome to Cricket Fever</h2>
+
+<p>Your Ultimate Cricket Hub</p>
+
+<button onclick="startQuiz()">
+🏏 Start Quiz
+</button>
+
+<br><br>
+
+<button onclick="openPlayers()">
+📊 Players Records
+</button>
+
+</div>
 
 </body>
 </html>
